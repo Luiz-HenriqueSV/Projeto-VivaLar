@@ -1,6 +1,6 @@
-# RPG Market
+# VivaLar
 
-RPG Market é um aplicativo mobile desenvolvido em Flutter como parte de uma atividade acadêmica de Desenvolvimento Mobile. O projeto simula uma loja virtual especializada em artigos para RPG de mesa, permitindo que os usuários naveguem por produtos, visualizem detalhes, adicionem itens ao carrinho e finalizem compras.
+VivaLar é um aplicativo mobile desenvolvido em Flutter como parte de uma atividade acadêmica de Desenvolvimento Mobile. O projeto simula uma loja virtual especializada na venda de móveis e itens para o lar, permitindo que os usuários naveguem por produtos, visualizem detalhes, adicionem itens ao carrinho e finalizem compras.
 
 ## Objetivo
 
@@ -8,7 +8,7 @@ O objetivo do projeto é aplicar conceitos fundamentais do desenvolvimento mobil
 
 ## Funcionalidades
 
-* Listagem de produtos de RPG.
+* Listagem de móveis e produtos para o lar.
 * Visualização de detalhes dos produtos.
 * Adição e remoção de itens do carrinho.
 * Controle de estoque dos produtos.
@@ -18,15 +18,18 @@ O objetivo do projeto é aplicar conceitos fundamentais do desenvolvimento mobil
 
 ## Produtos Disponíveis
 
-A loja oferece diversos itens voltados para jogadores e mestres de RPG, como:
+A loja oferece diversos móveis e itens de decoração, como:
 
-* Kits de dados.
-* Livros de regras.
-* Escudos do mestre.
-* Miniaturas.
-* Mapas de batalha.
-* Torres de dados.
-* Marcadores de iniciativa.
+* Sofás.
+* Mesas de jantar.
+* Cadeiras.
+* Guarda-roupas.
+* Estantes.
+* Racks para televisão.
+* Camas.
+* Escrivaninhas.
+* Poltronas.
+* Mesas de centro.
 
 ## Tecnologias Utilizadas
 
@@ -39,6 +42,7 @@ A loja oferece diversos itens voltados para jogadores e mestres de RPG, como:
 O aplicativo foi desenvolvido seguindo uma estrutura simples e organizada, separando telas, modelos e componentes para facilitar a manutenção e evolução do sistema.
 
 ## Autor
-Luiz Henrique Souza Ventura
+
+Luiz Henrique Souza Ventura - 3 DSA
 
 Projeto desenvolvido para fins acadêmicos na disciplina de Desenvolvimento Mobile.
