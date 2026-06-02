@@ -1,17 +1,50 @@
-# rpg_market
+# Loja Online Simples — Flutter/Dart
 
-A new Flutter project.
+Projeto didático para Android Studio, inspirado na apostila **Loja Online Simples com Flutter e Dart**.
 
-## Getting Started
+ - Prof. Alexandre Garcez Vieira
+ - Escola Técnica Estadual Juscelino Kubitschek de Oliveira
+ - Diadema / SP
 
-This project is a starting point for a Flutter application.
+## O que o app demonstra
 
-A few resources to get you started if this is your first Flutter project:
+- Página Inicial com botões **Ver Produtos** e **Carrinho**.
+- Página de Produtos com cards, preço, descrição curta, estoque e botão **Selecionar**.
+- Página de Detalhes do Produto com ID, preço, estoque, descrição longa, botão **Adicionar ao Carrinho** e botão **Ver Mais Produtos**.
+- Carrinho com ID, nome, preço unitário, quantidade, subtotal, frete, impostos e total.
+- Validação de estoque: o app mostra erro se a quantidade solicitada ultrapassar o estoque.
+- Cancelamento do pedido, zerando quantidades e total.
+- Finalização do pedido com endereço de cobrança, endereço de entrega e número de confirmação.
+- Inventário em arquivo externo: `assets/products.json`.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Como executar no Android Studio
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Extraia o arquivo ZIP.
+2. Abra a pasta `loja_online_simples_flutter_aprimorado` no Android Studio.
+3. Confirme que o Flutter SDK está configurado.
+4. Execute:
+
+```bash
+flutter pub get
+flutter run
+```
+
+Caso o Android Studio solicite recriar arquivos de plataforma, use:
+
+```bash
+flutter create .
+flutter pub get
+flutter run
+```
+
+## Estrutura principal
+
+```text
+lib/main.dart             Código completo do aplicativo
+assets/products.json      Inventário externo de produtos
+pubspec.yaml              Configuração do projeto Flutter
+```
+
+## Observação pedagógica
+
+Este app usa dados em memória e JSON local para facilitar o aprendizado. Em um projeto profissional, o inventário, o carrinho e os pedidos poderiam ser integrados a uma API ou banco de dados, como Supabase/PostgreSQL.

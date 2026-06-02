@@ -1,0 +1,38 @@
+[
+  {
+    "id": "RPG-001",
+    "name": "Espada Longa de Aço Valiriano",
+    "price": 250.00,
+    "stock": 5,
+    "thumbnail": "⚔️",
+    "shortDescription": "Arma balanceada ideal para guerreiros e paladinos.",
+    "longDescription": "Forjada sob o fogo de dragões ancestrais, esta espada longa oferece +5 de bônus em jogadas de ataque físico. Lâmina extremamente afiada e leve, perfeita para combates prolongados em masmorras escuras."
+  },
+  {
+    "id": "RPG-002",
+    "name": "Poção de Cura Maior",
+    "price": 45.50,
+    "stock": 20,
+    "thumbnail": "🧪",
+    "shortDescription": "Restaura 4d4 + 4 pontos de vida instantaneamente.",
+    "longDescription": "Um elixir alquímico destilado com ervas raras da floresta élfica. Indispensável para qualquer aventureiro que planeja desafiar chefes ou explorar territórios hostis sem um clérigo no grupo."
+  },
+  {
+    "id": "RPG-003",
+    "name": "Grimório de Feitiços de Fogo",
+    "price": 189.90,
+    "stock": 3,
+    "thumbnail": "📖",
+    "shortDescription": "Contém magias arcanas do círculo elemental do fogo.",
+    "longDescription": "Encadernado em couro de salamandra, este tomo permite a magos e feiticeiros aprenderem feitiços de área como 'Bola de Fogo' e 'Mãos Flamejantes'. Requer inteligência mínima de 14."
+  },
+  {
+    "id": "RPG-004",
+    "name": "Escudo de Torre do Dragão",
+    "price": 320.00,
+    "stock": 2,
+    "thumbnail": "🛡️",
+    "shortDescription": "Escudo pesado com alta absorção de dano elemental.",
+    "longDescription": "Feito a partir de escamas de dragão vermelho reforçadas com ferro batido. Fornece cobertura total e resistência passiva a ataques baseados em fogo e bafo de dragão."
+  }
+]

@@ -1,6 +1,6 @@
 {
-    "name": "rpg_market",
-    "short_name": "rpg_market",
+    "name": "loja_online_simples_flutter",
+    "short_name": "loja_online_simples_flutter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
