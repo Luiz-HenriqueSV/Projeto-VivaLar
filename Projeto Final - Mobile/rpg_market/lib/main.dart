@@ -7,6 +7,26 @@ void main() {
   runApp(const RpgMarketApp());
 }
 
+class Product {
+  final String id;
+  final String name;
+  final String thumbnail;
+  final double price;
+  final int stock;
+
+  Product({required this.id, required this.name, required this.thumbnail, required this.price, required this.stock});
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'].toString(),
+      name: json['name'] as String? ?? '',
+      thumbnail: json['thumbnail'] as String? ?? '',
+      price: (json['price'] is num) ? (json['price'] as num).toDouble() : double.tryParse(json['price'].toString()) ?? 0.0,
+      stock: (json['stock'] is int) ? json['stock'] as int : int.tryParse(json['stock']?.toString() ?? '') ?? 0,
+    );
+  }
+}
+
 class RpgMarketApp extends StatefulWidget {
   const RpgMarketApp({super.key});
 
@@ -126,49 +146,12 @@ class _RpgMarketAppState extends State<RpgMarketApp> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    final lightTheme = ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.purple,
-        primary: Colors.purple,
-        secondary: Colors.amber,
-        brightness: Brightness.light,
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-      ),
-    );
-
-    final darkTheme = ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.deepPurple,
-        primary: Colors.purpleAccent,
-        secondary: Colors.amber,
-        brightness: Brightness.dark,
-        surface: const Color(0xFF1E1233),
-      ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF120A21),
-        foregroundColor: Colors.purpleAccent,
-      ),
-    );
-
-    return MaterialApp(
-      title: 'RPG Market',
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      darkTheme: darkTheme,
-      themeMode: _themeMode,
-      home: LandingPage(appState: this),
-=======
     return MaterialApp(
       title: 'Furniture Store',
+      themeMode: _themeMode, 
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6B4423), // Cor de madeira
+          seedColor: const Color(0xFF6B4423), 
           brightness: Brightness.light,
         ),
         useMaterial3: true,
@@ -180,98 +163,25 @@ class _RpgMarketAppState extends State<RpgMarketApp> {
           backgroundColor: Color(0xFF8B6F47),
         ),
       ),
-      home: const FurnitureStorePage(),
->>>>>>> 3b457f2ff539d411f10428237c14ecdfe25549c5
-    );
-  }
-}
-
-<<<<<<< HEAD
-class Product {
-  final String id;
-  final String name;
-  final double price;
-  final int stock;
-  final String thumbnail;
-  final String shortDescription;
-  final String longDescription;
-
-  const Product({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.stock,
-    required this.thumbnail,
-    required this.shortDescription,
-    required this.longDescription,
-  });
-
-  factory Product.fromJson(Map<String, dynamic> json) {
-    return Product(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      price: (json['price'] as num).toDouble(),
-      stock: json['stock'] as int,
-      thumbnail: json['thumbnail'] as String,
-      shortDescription: json['shortDescription'] as String,
-      longDescription: json['longDescription'] as String,
-    );
-  }
-}
-
-class AppSettingsDrawer extends StatelessWidget {
-  final _RpgMarketAppState appState;
-  const AppSettingsDrawer({super.key, required this.appState});
-
-  @override
-  Widget build(BuildContext context) {
-    final isDark = appState._themeMode == ThemeMode.dark;
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryContainer,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '⚔️ Configurações da Guilda',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text('Ajuste sua interface visual',
-                    style: TextStyle(color: Theme.of(context).colorScheme.onPrimaryContainer)),
-              ],
-            ),
-          ),
-          ListTile(
-            leading: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
-            title: const Text('Tema Escuro'),
-            trailing: Switch(
-              value: isDark,
-              onChanged: (value) {
-                appState.toggleTheme(value);
-              },
-            ),
-          ),
-        ],
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6B4423),
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF6B4423),
+          foregroundColor: Colors.white,
+        ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color(0xFF8B6F47),
+        ),
       ),
+      home: const FurnitureStorePage(),
     );
   }
 }
 
-class LandingPage extends StatelessWidget {
-  final _RpgMarketAppState appState;
-  const LandingPage({super.key, required this.appState});
-=======
 class Furniture {
   final String name;
   final String category;
@@ -323,7 +233,7 @@ class _FurnitureStorePageState extends State<FurnitureStorePage> {
       category: 'Quarto',
       price: 800.00,
       description: 'Guarda-roupa espaçoso com espelho',
-      icon: Icons.door_back,
+      icon: Icons.checkroom,
     ),
     Furniture(
       name: 'Estante de Livros',
@@ -340,71 +250,11 @@ class _FurnitureStorePageState extends State<FurnitureStorePage> {
       icon: Icons.chair,
     ),
   ];
->>>>>>> 3b457f2ff539d411f10428237c14ecdfe25549c5
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
-        title: const Text('RPG Market'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => CartPage(appState: appState)),
-            ),
-          )
-        ],
-      ),
-      drawer: AppSettingsDrawer(appState: appState),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                '🔮',
-                style: TextStyle(fontSize: 80),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'Bem-vindo à Taverna RPG Market!',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Aqui você encontra os melhores artefatos, armas lendárias e consumíveis mágicos para suas campanhas.',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const SizedBox(height: 40),
-              FilledButton.icon(
-                icon: const Icon(Icons.shield),
-                label: const Text('Explorar Arsenal (Produtos)'),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => ProductsPage(appState: appState)),
-                ),
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.shopping_bag),
-                label: const Text('Ver Inventário (Carrinho)'),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => CartPage(appState: appState)),
-                ),
-              ),
-            ],
-          ),
-        ),
-=======
         title: const Text('Loja de Móveis'),
         centerTitle: true,
         elevation: 0,
@@ -425,108 +275,11 @@ class _FurnitureStorePageState extends State<FurnitureStorePage> {
         },
         tooltip: 'Carrinho de Compras',
         child: const Icon(Icons.shopping_cart),
->>>>>>> 3b457f2ff539d411f10428237c14ecdfe25549c5
       ),
     );
   }
 }
 
-<<<<<<< HEAD
-class ProductsPage extends StatelessWidget {
-  final _RpgMarketAppState appState;
-  const ProductsPage({super.key, required this.appState});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Arsenal de Itens'),
-      ),
-      body: appState.products.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              padding: const EdgeInsets.all(12),
-              itemCount: appState.products.length,
-              itemBuilder: (context, index) {
-                final product = appState.products[index];
-                return Card(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                      children: [
-                        Text(product.thumbnail, style: const TextStyle(fontSize: 40)),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                product.name,
-                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Text(product.shortDescription, style: const TextStyle(fontSize: 13)),
-                              const SizedBox(height: 8),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'PO ${product.price.toStringAsFixed(2)}',
-                                    style: TextStyle(
-                                      color: Theme.of(context).colorScheme.primary,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text('Estoque: ${product.stock} un',
-                                      style: const TextStyle(fontSize: 12)),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        ElevatedButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => ProductDetailsPage(product: product, appState: appState),
-                            ),
-                          ),
-                          child: const Text('Olhar'),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-    );
-  }
-}
-
-class ProductDetailsPage extends StatelessWidget {
-  final Product product;
-  final _RpgMarketAppState appState;
-
-  const ProductDetailsPage({super.key, required this.product, required this.appState});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(product.name)),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(child: Text(product.thumbnail, style: const TextStyle(fontSize: 100))),
-            const SizedBox(height: 16),
-            Text('ID do Item: ${product.id}', style: const TextStyle(color: Colors.grey)),
-            const SizedBox(height: 8),
-            Text(product.name,
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-=======
 class FurnitureCard extends StatelessWidget {
   final Furniture furniture;
 
@@ -581,35 +334,10 @@ class FurnitureCard extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 12.0),
->>>>>>> 3b457f2ff539d411f10428237c14ecdfe25549c5
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-<<<<<<< HEAD
-                  'Preço: PO ${product.price.toStringAsFixed(2)}',
-                  style: const TextStyle(fontSize: 20, color: Colors.amber, fontWeight: FontWeight.bold),
-                ),
-                Chip(
-                  label: Text(product.stock > 0 ? 'Em Estoque (${product.stock})' : 'Esgotado'),
-                  backgroundColor: product.stock > 0 ? Colors.green.withOpacity(0.2) : Colors.red.withOpacity(0.2),
-                ),
-              ],
-            ),
-            const Divider(height: 32),
-            const Text('Propriedades e Lore:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Text(product.longDescription, style: const TextStyle(fontSize: 16, height: 1.4)),
-            const SizedBox(height: 40),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                icon: const Icon(Icons.add_moderator),
-                label: const Text('Adicionar ao Inventário'),
-                onPressed: product.stock > 0 ? () => appState.addToCart(product, context) : null,
-              ),
-=======
                   'R\$ ${furniture.price.toStringAsFixed(2)}',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: const Color(0xFF6B4423),
@@ -631,7 +359,6 @@ class FurnitureCard extends StatelessWidget {
                   child: const Text('Adicionar'),
                 ),
               ],
->>>>>>> 3b457f2ff539d411f10428237c14ecdfe25549c5
             ),
           ],
         ),
